@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+*{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.page {
+  width: 100%;
+  margin-top: 50px;
+  height: calc(100vh - 50px);
   display: flex;
-  flex-direction: column;
+}
+
+.navBar {
+  height: 50px;
+  width: 100%;
+  background: pink;
+  position: fixed;
+  top: 0;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  cursor: default;
+}
+
+.navLeft {
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.navCentre {
+  font-size: 1.1rem;
+}
+
+.navRight {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+.sideBar {
+  width: 300px;
+  background: chocolate;
+  height: 100%;
+}
+
+.addToDo {
+  display: flex;
+  width: calc(100% - 300px);
+  background: cornflowerblue;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.toDoForm {
+  display: flex;
+  align-items: center;
+}
+
+.toDoInput {
+  margin-right: 1rem;
+  border: none;
+  border-bottom: 1px solid white;
+  padding-bottom: 0.25rem;
+  outline: none;
+  background: none;
+  font-size: 2rem;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.toDoInput::placeholder {
+  color: rgb(228, 228, 228);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.addToDoButton {
+  color: white;
+  background: chocolate;
+  border: none;
+  font-size: 1.2rem;
+}
+
+.taskTypeContainer {
+  background: rgb(100, 102, 237);
+  display: flex;
+  justify-content: space-around;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.taskType {
+  background:rgb(11, 122, 117);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.test {
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .sideBar {
+    width: 30%;
   }
-  to {
-    transform: rotate(360deg);
+  .addToDo {
+    width: 70%;
+  }
+}
+
+@media (max-width: 675px) {
+  .page {
+    flex-direction: column-reverse;
+  }
+  .addToDo {
+    width: 100%;
+    height: 20%;
+  }
+  .sideBar {
+    width: 100%;
+    height: 80%;
   }
 }
