@@ -1,19 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
 
 export default function SideBar() {
-    const [taskList, setTaskList] = useState('current')
+    const allTasks = useSelector(state => state.tasks.taskList)
+    const [taskType, setTaskType] = useState('all')
+    const [taskArr, setTaskArr] = useState([])
+    
+    useEffect(() => {
+        if (taskType === 'current') {
+            setTaskArr(allTasks.filter(task => !task.complete))
+        } 
+        else if (taskType === 'completed') {
+            setTaskArr(allTasks.filter(task => task.complete))
+        } 
+        else {
+            setTaskArr(allTasks)
+        }
+    }, [taskType, allTasks])
 
     return (
         <div className='sideBar'>
           <div className='taskTypeContainer'>
-              <span className='taskType' onClick={() => setTaskList('current')} style={taskList === 'current'? {background: 'white'} : {}}>Current</span>
-              <span className='taskType' onClick={() => setTaskList('completed')} style={taskList === 'completed'? {background: 'white'} : {}}>Completed</span>
+              <span className='taskType' onClick={() => setTaskType('all')}>All</span>
+              <span className='taskType' onClick={() => setTaskType('current')}>Current</span>
+              <span className='taskType' onClick={() => setTaskType('completed')}>Completed</span>
           </div>
-          {taskList === 'current'?
-            <div className='test'>Current tasks here</div>
-            :
-            <div className='test'>Completed tasks here</div>
-          }     
+          <div className='taskContainer'>
+          <ul>
+             {taskArr.map((task) => (
+                  <li key={task.uid}>{task.desc}</li>
+              ))}
+          </ul>
+          </div>
         </div>
     )
 }

@@ -96,6 +96,12 @@
   width: 100%;
 }
 
+.taskContainer {
+  background: cyan;
+  width: 100%;
+  height: 100px;
+}
+
 @media (max-width: 1000px) {
   .sideBar {
     width: 30%;
