@@ -21,17 +21,19 @@ export default function SideBar() {
     return (
         <div className='sideBar'>
           <div className='taskTypeContainer'>
-              <span className='taskType' onClick={() => setTaskType('all')}>All</span>
-              <span className='taskType' onClick={() => setTaskType('current')}>Current</span>
-              <span className='taskType' onClick={() => setTaskType('completed')}>Completed</span>
+              <span className='taskType' onClick={() => setTaskType('all')} style={taskType === 'all'? {color: 'white'} : {}}>All</span>
+              <span className='taskType' onClick={() => setTaskType('current')} style={taskType === 'current'? {color: 'white'} : {}}>Current</span>
+              <span className='taskType' onClick={() => setTaskType('completed')} style={taskType === 'completed'? {color: 'white'} : {}}>Completed</span>
           </div>
-          <div className='taskContainer'>
-          <ul>
+          {taskArr.length !== 0?
+          <ul className='taskList'>
              {taskArr.map((task) => (
-                  <li key={task.uid}>{task.desc}</li>
+                  <li key={task.uid} className='taskListItem'>{task.desc}</li>
               ))}
           </ul>
-          </div>
+          :
+          <div style={{color: 'white', marginTop: '5rem'}}>Such empty</div>
+          }
         </div>
     )
 }

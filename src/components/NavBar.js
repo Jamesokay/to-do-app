@@ -1,14 +1,18 @@
 import { UserContext } from '../contexts/UserContext'
 import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
+import { useDispatch } from 'react-redux'
+import { clearTasks } from '../tasksSlice'
 
 export default function NavBar() {
     const navigate = useNavigate()
     const { setUser } = useContext(UserContext)
+    const dispatch = useDispatch()
 
     const signOut = (e) => {
         e.preventDefault()
         setUser(null)
+        dispatch(clearTasks())
         navigate('/')
     }
 

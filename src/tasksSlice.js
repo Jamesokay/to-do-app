@@ -24,10 +24,15 @@ export const tasksSlice = createSlice({
         taskList: state.taskList.map(task => task.uid === action.payload.uid ? {...task, complete: true} : task)
       }
     },
+    clearTasks: () => {
+      return {
+        taskList: []
+      }
+    }
   },
 })
 
 
-export const { addTask, removeTask, completeTask } = tasksSlice.actions
+export const { addTask, removeTask, completeTask, clearTasks } = tasksSlice.actions
 
 export default tasksSlice.reducer
