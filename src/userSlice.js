@@ -25,7 +25,7 @@ export const userSlice = createSlice({
     completeTask: (state, action) => {
       return {
         ...state,
-        tasks: state.tasks.map(task => task.uid === action.payload.uid ? {...task, complete: true} : task)
+        tasks: state.tasks.map(task => task.uid === action.payload.uid ? {...task, complete: true, completedAt: Date.now() } : task)
       }
     },
     signOut: () => {

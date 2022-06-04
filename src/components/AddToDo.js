@@ -14,7 +14,7 @@ export default function AddToDo() {
 
     return (
         <div className='addToDo'>
-          <form className='toDoForm' onSubmit={handleSubmit}>
+          <form className='toDoForm' onSubmit={handleSubmit} spellCheck='false'>
             <input
               placeholder='What needs doing?'
               type='text'

@@ -13,7 +13,9 @@ export default function SideBar() {
             setTaskArr(allTasks.filter(task => !task.complete))
         } 
         else if (taskType === 'completed') {
-            setTaskArr(allTasks.filter(task => task.complete))
+            setTaskArr(allTasks.filter(task => task.complete).sort(function(a, b) {
+                return b.completedAt - a.completedAt
+            }))
         } 
         else {
             setTaskArr(allTasks)
@@ -39,13 +41,17 @@ export default function SideBar() {
           <ul className='taskList'>
              {taskArr.map((task) => (
                   <li key={task.uid} className='taskListItem' onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
-                    <span className='taskDesc'>{task.desc}</span>
-                    <div className='taskStatus' style={task.complete? {background: 'green'} : {}}/>
+                    <span className='taskDesc' style={task.complete? {opacity: '0.5'} : {}}>{task.desc}</span>
+                    {!task.complete && (
+                      <div className='taskStatus' />
+                    )}
                   </li>
               ))}
           </ul>
           :
-          <div style={{color: 'white', marginTop: '5rem'}}>Such empty</div>
+          <div className='emptyTaskList'>
+            Your tasks will appear here
+          </div>
           }
         </div>
     )
