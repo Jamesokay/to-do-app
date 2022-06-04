@@ -25,10 +25,13 @@ export default function SideBar() {
               <span className='taskType' onClick={() => setTaskType('current')} style={taskType === 'current'? {color: 'white'} : {}}>Current</span>
               <span className='taskType' onClick={() => setTaskType('completed')} style={taskType === 'completed'? {color: 'white'} : {}}>Completed</span>
           </div>
-          {taskArr.length !== 0?
+          {allTasks.length !== 0?
           <ul className='taskList'>
              {taskArr.map((task) => (
-                  <li key={task.uid} className='taskListItem'>{task.desc}</li>
+                  <li key={task.uid} className='taskListItem'>
+                    <span>{task.desc}</span>
+                    <div className='taskStatus' style={task.complete? {background: 'green'} : {}}/>
+                  </li>
               ))}
           </ul>
           :
