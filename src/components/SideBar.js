@@ -1,10 +1,12 @@
 import { useState, useEffect} from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { completeTask, removeTask } from '../userSlice'
 
 export default function SideBar() {
     const allTasks = useSelector(state => state.user.tasks)
     const [taskType, setTaskType] = useState('all')
     const [taskArr, setTaskArr] = useState([])
+    const dispatch = useDispatch()
     
     useEffect(() => {
         if (taskType === 'current') {
@@ -18,6 +20,14 @@ export default function SideBar() {
         }
     }, [taskType, allTasks])
 
+    const markAsComplete = (taskId) => {
+        dispatch(completeTask({uid: taskId}))
+    }
+
+    const deleteTask = (taskId) => {
+        dispatch(removeTask({uid: taskId}))
+    }
+
     return (
         <div className='sideBar'>
           <div className='taskTypeContainer'>
@@ -25,11 +35,11 @@ export default function SideBar() {
               <span className='taskType' onClick={() => setTaskType('current')} style={taskType === 'current'? {color: 'white'} : {}}>Current</span>
               <span className='taskType' onClick={() => setTaskType('completed')} style={taskType === 'completed'? {color: 'white'} : {}}>Completed</span>
           </div>
-          {allTasks.length !== 0?
+          {allTasks && allTasks.length !== 0?
           <ul className='taskList'>
              {taskArr.map((task) => (
-                  <li key={task.uid} className='taskListItem'>
-                    <span>{task.desc}</span>
+                  <li key={task.uid} className='taskListItem' onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
+                    <span className='taskDesc'>{task.desc}</span>
                     <div className='taskStatus' style={task.complete? {background: 'green'} : {}}/>
                   </li>
               ))}

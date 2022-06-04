@@ -18,12 +18,14 @@ export const userSlice = createSlice({
     },
     removeTask: (state, action) => {
       return {
-        taskList: state.tasks.filter(task => task.uid !== action.payload.uid)
+        ...state,
+        tasks: state.tasks.filter(task => task.uid !== action.payload.uid)
       }
     },
     completeTask: (state, action) => {
       return {
-        taskList: state.tasks.map(task => task.uid === action.payload.uid ? {...task, complete: true} : task)
+        ...state,
+        tasks: state.tasks.map(task => task.uid === action.payload.uid ? {...task, complete: true} : task)
       }
     },
     signOut: () => {
