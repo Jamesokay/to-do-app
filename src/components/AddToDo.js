@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { addTask } from '../tasksSlice'
+import { addTask } from '../userSlice'
 
 export default function AddToDo() {
     const newTask = useRef()

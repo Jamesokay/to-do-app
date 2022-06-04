@@ -1,13 +1,12 @@
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import { useContext } from 'react'
-import { UserContext } from './contexts/UserContext'
 import Dashboard from './pages/Dashboard'
 import SignIn from './pages/SignIn'
+import { useSelector } from 'react-redux'
 
 function App() {
-  const { user } = useContext(UserContext)
-  
+  const user = useSelector(state => state.user.name)
+
   return (
     <div className="App">
       <Routes>

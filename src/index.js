@@ -4,7 +4,6 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 import { BrowserRouter } from 'react-router-dom'
-import { UserContextProvider } from './contexts/UserContext'
 import { Provider } from 'react-redux'
 import { store } from './store'
 
@@ -13,9 +12,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
-        <UserContextProvider>
           <App />
-        </UserContextProvider>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

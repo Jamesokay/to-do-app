@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import tasksReducer from './tasksSlice'
+import userReducer from './userSlice'
 import { loadState, saveState } from './localStorage'
 
 const persistedStore = loadState()
 
 export const store = configureStore({
     reducer: {
-        tasks: tasksReducer
+        user: userReducer
     },
     preloadedState: persistedStore
 })

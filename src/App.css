@@ -96,9 +96,12 @@ body {
 
 .addToDoButton {
   color: white;
-  background: chocolate;
+  background: rgb(32, 92, 116);
+  padding: 1rem;
+  border-radius: 0.5rem;
   border: none;
   font-size: 1.2rem;
+  cursor: pointer;
 }
 
 .taskTypeContainer {

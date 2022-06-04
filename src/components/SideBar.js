@@ -2,7 +2,7 @@ import { useState, useEffect} from 'react'
 import { useSelector } from 'react-redux'
 
 export default function SideBar() {
-    const allTasks = useSelector(state => state.tasks.taskList)
+    const allTasks = useSelector(state => state.user.tasks)
     const [taskType, setTaskType] = useState('all')
     const [taskArr, setTaskArr] = useState([])
     

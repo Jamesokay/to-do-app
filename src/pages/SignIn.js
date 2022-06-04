@@ -1,15 +1,16 @@
-import { useRef, useContext } from 'react'
-import { UserContext } from '../contexts/UserContext'
+import { useRef } from 'react'
+import { useDispatch } from 'react-redux'
+import { signIn } from '../userSlice'
 
 export default function SignIn() {
-    const { setUser } = useContext(UserContext)
+    const dispatch = useDispatch()
     const username = useRef()
     
 
     const attemptSignIn = (e) => {
         e.preventDefault()
         if (username.current.value.length >= 4) {
-            setUser('user', username.current.value)
+            dispatch(signIn({name: username.current.value}))
         } else {
             console.log('too short')
         }        
