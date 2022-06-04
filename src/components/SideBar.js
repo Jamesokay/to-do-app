@@ -10,7 +10,7 @@ export default function SideBar() {
     
     useEffect(() => {
         if (taskType === 'current') {
-            setTaskArr(allTasks.filter(task => !task.complete))
+            setTaskArr(allTasks.filter(task => !task.complete).reverse())
         } 
         else if (taskType === 'completed') {
             setTaskArr(allTasks.filter(task => task.complete).sort(function(a, b) {

@@ -9,7 +9,7 @@ export const userSlice = createSlice({
   },
   reducers: {
     addTask: (state, action) => {
-      state.tasks.push({
+      state.tasks.unshift({
         uid: Date.now() + Math.random(),
         timestamp: Date.now(),
         desc: action.payload.desc,
