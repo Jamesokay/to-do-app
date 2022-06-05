@@ -20,7 +20,7 @@ export default function AddToDo() {
               placeholder='What needs doing?'
               type='text'
               required
-              className='toDoInput'
+              className={defaultTheme? 'toDoInput lightText' : 'toDoInput darkText'}
               ref={newTask}
             />
             <button className={defaultTheme? 'addToDoButton darkThemeButton' : 'addToDoButton lightThemeButton'}>Add</button>

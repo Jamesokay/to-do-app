@@ -12,7 +12,7 @@ export default function SignIn() {
         if (username.current.value.length >= 4) {
             dispatch(signIn({name: username.current.value}))
         } else {
-            console.log('too short')
+            return
         }        
     }
 
@@ -22,10 +22,11 @@ export default function SignIn() {
             <span className='signInTitle'>To Do</span>
             <form className='userForm' onSubmit={attemptSignIn}>
               <input
-                placeholder='username'
+                placeholder='4+ character name'
                 type='text'
                 required
                 className='usernameInput'
+                minLength='4'
                 ref={username}
               />
               <button className='signInButton'>Sign In</button>

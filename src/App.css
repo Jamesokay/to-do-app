@@ -27,6 +27,14 @@ body {
   background: rgb(212, 212, 212);
 }
 
+.darkText {
+  color: rgb(34, 34, 34);
+}
+
+.lightText {
+  color: white;
+}
+
 .signInPage {
   background: rgb(122, 199, 157);
   width: 100%;
@@ -147,7 +155,7 @@ body {
 }
 
 .sideBar {
-  width: 300px;
+  width: 350px;
   height: 100%;
   overflow-y: scroll;
   z-index: 2;
@@ -169,7 +177,7 @@ body {
 
 .addToDo {
   display: flex;
-  width: calc(100% - 300px);
+  width: calc(100% - 350px);
   justify-content: center;
   align-items: center;
 }
@@ -192,10 +200,13 @@ body {
   background: none;
   width: 275px;
   font-size: 2rem;
-  color: white;
 }
 
-.toDoInput::placeholder {
+.darkText::placeholder {
+  color: grey;
+}
+
+.lightText::placeholder {
   color: rgb(194, 194, 194);
 }
 
@@ -216,7 +227,7 @@ body {
   padding-top: 1rem;
   padding-bottom: 1rem;
   position: fixed;
-  width: 300px;
+  width: 350px;
   z-index: 3;
   transition: background 0.2s ease-in-out;
   
@@ -285,6 +296,7 @@ body {
   height: 10px;
   background: #e0e77c;
   border-radius: 50%;
+  display: inline-block;
 }
 
 .emptyTaskList {
@@ -296,12 +308,16 @@ body {
 }
 
 .emptyTaskListItem {
-  font-family: 'Comfortaa', cursive;
   margin-bottom: 1rem;
 }
 
+.greeting {
+  font-weight: bold;
+}
+
 .settings {
-  padding: 5rem;
+  width: 420px;
+  height: 200px;
   position: fixed;
   left: 65%;
   top: 45%;
@@ -335,6 +351,10 @@ body {
   color: white;
 }
 
+.settingsInput::placeholder {
+  color: white;
+}
+
 .settingsButton {
   color: rgb(54, 54, 54);
   padding: 0.5rem;
@@ -350,6 +370,7 @@ body {
   cursor: pointer;
   top: 20px;
   right: 20px;
+  color: white;
 }
 
 .changeTheme:hover {
@@ -358,13 +379,13 @@ body {
 
 @media (max-width: 1000px) {
   .sideBar {
-    width: 30%;
+    width: 35%;
   }
   .taskTypeContainer {
-    width: 30%;
+    width: 35%;
   }
   .addToDo {
-    width: 70%;
+    width: 65%;
   }
 }
 
@@ -382,6 +403,42 @@ body {
   }
   .taskTypeContainer {
     width: 100%;
+  }
+  .settings {
+    left: 50%;
+    top: 15%;
+    transform: translate(-50%, -15%);
+  }
+}
+
+@media (max-width: 425px) {
+  .toDoInput {
+    width: 225px;
+    font-size: 1.2rem;
+  }
+  .addToDoButton {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .settings {
+    width: 350px;
+  }
+}
+
+@media (max-width: 300px) {
+  .toDoInput {
+    width: 175px;
+    font-size: 1.1rem;
+  }
+  .addToDoButton {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  .settings {
+    width: 260px;
+  }
+  .settingsInput {
+    width: 120px;
   }
 }
 

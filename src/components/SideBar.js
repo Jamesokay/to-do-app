@@ -69,8 +69,11 @@ export default function SideBar() {
           </ul>
           :
           <div className='emptyTaskList'>
-            <span className='emptyTaskListItem'>{`${greeting} ${username}`}</span>
-            <span className='emptyTaskListItem'>Add a task to begin</span>
+            <span className='emptyTaskListItem greeting'>{`${greeting} ${username}`}</span>
+            <span className='emptyTaskListItem'>- Current tasks will be marked with <div className='taskStatus' /></span>
+            <span className='emptyTaskListItem'>- Click a current task to complete it</span>
+            <span className='emptyTaskListItem'>- Click a completed task to clear it</span>
+            <span className='emptyTaskListItem'>- Add a task to begin</span>
           </div>
           }
         </div>
