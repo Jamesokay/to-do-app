@@ -17,8 +17,10 @@ export default function SignIn() {
     }
 
     return (
-        <div className='page'>
-          <form className='userForm' onSubmit={attemptSignIn}>
+        <div className='signInPage'>
+          <div className='signInContainer'>
+            <span className='signInTitle'>To Do</span>
+            <form className='userForm' onSubmit={attemptSignIn}>
               <input
                 placeholder='username'
                 type='text'
@@ -27,7 +29,8 @@ export default function SignIn() {
                 ref={username}
               />
               <button className='signInButton'>Sign In</button>
-          </form>
+            </form>
+          </div>
         </div>
     )
 }

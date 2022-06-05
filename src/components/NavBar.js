@@ -40,7 +40,7 @@ export default function NavBar() {
         <>
         <div className='navBar'>
            <span className='navLeft' ref={buttonRef} onClick={() => setShowSettings(!showSettings)}>Settings</span> 
-           <span className='navCentre'>To Do App</span>
+           <span className='navCentre'>To Do</span>
            <span className='navRight' onClick={handleSignOut}>Logout</span>
         </div>
         {showSettings && (

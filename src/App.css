@@ -19,6 +19,64 @@ body {
   display: flex;
 }
 
+.signInPage {
+  background: rgb(122, 199, 157);
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signInContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signInTitle {
+  font-family: 'Comfortaa', cursive;
+  font-size: 5rem;
+  margin-bottom: 2rem;
+  color: rgb(54, 54, 54);
+}
+
+.userForm {
+  background: rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 3rem 2rem 3rem 2rem;
+  border-radius: 0.5rem;
+}
+
+.signInButton {
+  color: white;
+  background: rgb(54, 54, 54);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  font-family: 'Comfortaa', cursive;
+  transition: all 0.2s ease-in-out;
+}
+
+.signInButton:hover {
+  background: rgb(77, 77, 77);
+}
+
+.usernameInput {
+  margin-bottom: 2rem;
+  border: 1px solid rgb(221, 221, 221);
+  outline: none;
+  padding: 1rem;
+  background: white;
+  color: rgb(54, 54, 54);
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+}
+
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent;
@@ -110,7 +168,7 @@ body {
   font-size: 1.1rem;
   cursor: pointer;
   font-family: 'Comfortaa', cursive;
-  transition: color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .addToDoButton:hover {
