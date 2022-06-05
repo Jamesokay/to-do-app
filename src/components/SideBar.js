@@ -13,6 +13,7 @@ export default function SideBar() {
     const time = date.toLocaleTimeString('en-GB')
     const timeMod = parseInt(time.replace(/:/g, ''))
     const greeting = greetingMessage(timeMod)
+    const [hoveredTask, setHoveredTask] = useState('')
 
     function greetingMessage(time) {
       if (time < 120000) {
@@ -60,11 +61,19 @@ export default function SideBar() {
              {taskArr.map((task) => (
                   <li key={task.uid} 
                       className={defaultTheme? 'darkTaskListItem taskListItem' : 'lightTaskListItem taskListItem'}
+                      onMouseEnter={() => setHoveredTask(task.uid)}
+                      onMouseLeave={() => setHoveredTask('')}
                       onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
-                    <span className='taskDesc' style={task.complete? {opacity: '0.5'} : {}}>{task.desc}</span>
-                    {!task.complete && (
-                      <div className='taskStatus' />
-                    )}
+                    {hoveredTask === task.uid?
+                      <span>{task.complete? 'click to remove' : 'click to complete'}</span>
+                    :
+                    <>
+                      <span className='taskDesc' style={task.complete? {opacity: '0.5'} : {}}>{task.desc}</span>
+                      {!task.complete && (
+                        <div className='taskStatus' />
+                      )}
+                    </>
+                    }
                   </li>
               ))}
           </ul>
