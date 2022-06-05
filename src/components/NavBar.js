@@ -60,7 +60,7 @@ export default function NavBar() {
             />
             <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'}>Update</button>
           </form>
-          <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'} onClick={() => changeTheme()}>Change Theme</button>
+          <span className='changeTheme' onClick={() => changeTheme()}>Change Theme</span>
         </div>
         )}
         </>
