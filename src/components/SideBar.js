@@ -4,9 +4,27 @@ import { completeTask, removeTask } from '../userSlice'
 
 export default function SideBar() {
     const allTasks = useSelector(state => state.user.tasks)
+    const username = useSelector(state => state.user.name)
+    const defaultTheme = useSelector(state => state.user.defaultTheme)
     const [taskType, setTaskType] = useState('all')
     const [taskArr, setTaskArr] = useState([])
     const dispatch = useDispatch()
+    const date = new Date()
+    const time = date.toLocaleTimeString('en-GB')
+    const timeMod = parseInt(time.replace(/:/g, ''))
+    const greeting = greetingMessage(timeMod)
+
+    function greetingMessage(time) {
+      if (time < 120000) {
+        return 'Good morning'
+      }
+      else if (time >= 120000 && time < 175959) {
+        return 'Good afternoon'
+      }
+      else if (time >= 180000) {
+        return 'Good evening'
+      }
+    }
     
     useEffect(() => {
         if (taskType === 'current') {
@@ -31,8 +49,8 @@ export default function SideBar() {
     }
 
     return (
-        <div className='sideBar'>
-          <div className='taskTypeContainer'>
+        <div className={defaultTheme? 'sideBar darkSideBar' : 'sideBar lightSideBar'}>
+          <div className={defaultTheme? 'taskTypeContainer darkTaskTypeContainer' : 'taskTypeContainer lightTaskTypeContainer'}>
               <span className='taskType' onClick={() => setTaskType('all')} style={taskType === 'all'? {color: 'white'} : {}}>All</span>
               <span className='taskType' onClick={() => setTaskType('current')} style={taskType === 'current'? {color: 'white'} : {}}>Current</span>
               <span className='taskType' onClick={() => setTaskType('completed')} style={taskType === 'completed'? {color: 'white'} : {}}>Completed</span>
@@ -40,7 +58,9 @@ export default function SideBar() {
           {allTasks && allTasks.length !== 0?
           <ul className='taskList'>
              {taskArr.map((task) => (
-                  <li key={task.uid} className='taskListItem' onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
+                  <li key={task.uid} 
+                      className={defaultTheme? 'darkTaskListItem taskListItem' : 'lightTaskListItem taskListItem'}
+                      onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
                     <span className='taskDesc' style={task.complete? {opacity: '0.5'} : {}}>{task.desc}</span>
                     {!task.complete && (
                       <div className='taskStatus' />
@@ -50,7 +70,8 @@ export default function SideBar() {
           </ul>
           :
           <div className='emptyTaskList'>
-            Your tasks will appear here
+            <span className='emptyTaskListItem'>{`${greeting} ${username}`}</span>
+            <span className='emptyTaskListItem'>Add a task to begin</span>
           </div>
           }
         </div>

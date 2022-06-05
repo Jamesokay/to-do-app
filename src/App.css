@@ -8,7 +8,6 @@
 body {
   overscroll-behavior: none;
   overflow: hidden;
-  background: rgb(34, 34, 34);
   user-select: none;
 }
 
@@ -17,6 +16,15 @@ body {
   margin-top: 50px;
   height: calc(100vh - 50px);
   display: flex;
+  transition: all 0.2s ease-in-out;
+}
+
+.darkPage {
+  background: rgb(34, 34, 34);
+}
+
+.lightPage {
+  background: rgb(100, 100, 100);
 }
 
 .signInPage {
@@ -86,13 +94,37 @@ body {
   height: 50px;
   width: 100%;
   color: rgb(54, 54, 54);
-  background: rgb(122, 199, 157);
   position: fixed;
   top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: default;
+  transition: all 0.2s ease-in-out;
+}
+
+.darkTheme {
+  background: rgb(122, 199, 157);
+}
+
+.lightTheme {
+  background: rgb(114, 175, 204);
+}
+
+.darkThemeButton {
+  background: rgb(122, 199, 157);
+}
+
+.lightThemeButton {
+  background: rgb(114, 175, 204);
+}
+
+.darkThemeButton:hover {
+  background: rgb(146, 216, 177);
+}
+
+.lightThemeButton:hover {
+  background: rgb(132, 202, 235);
 }
 
 .navLeft {
@@ -116,7 +148,6 @@ body {
 
 .sideBar {
   width: 300px;
-  background: rgb(24, 24, 24);
   height: 100%;
   overflow-y: scroll;
   z-index: 2;
@@ -125,6 +156,15 @@ body {
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
   opacity: 0;
+  transition: all 0.2s ease-in-out;
+}
+
+.darkSideBar {
+  background: rgb(24, 24, 24);
+}
+
+.lightSideBar {
+  background: rgb(82, 82, 82);
 }
 
 .addToDo {
@@ -161,7 +201,6 @@ body {
 
 .addToDoButton {
   color: rgb(54, 54, 54);
-  background: rgb(122, 199, 157);
   padding: 1rem;
   border-radius: 0.5rem;
   border: none;
@@ -171,19 +210,26 @@ body {
   transition: all 0.2s ease-in-out;
 }
 
-.addToDoButton:hover {
-  background: rgb(146, 216, 177);
-}
-
 .taskTypeContainer {
   display: flex;
-  background: rgb(17, 17, 17);
   justify-content: space-around;
   padding-top: 1rem;
   padding-bottom: 1rem;
   position: fixed;
   width: 300px;
   z-index: 3;
+  transition: all 0.2s ease-in-out;
+  
+}
+
+.darkTaskTypeContainer {
+  background: rgb(17, 17, 17);
+  border-bottom: 1px solid rgb(34, 34, 34);
+}
+
+.lightTaskTypeContainer {
+  background: rgb(70, 70, 70);
+  border-bottom: 1px solid rgb(100, 100, 100);
 }
 
 .taskType {
@@ -207,7 +253,6 @@ body {
 .taskListItem {
   color: white;
   padding: 0.75rem 0.5rem 0.75rem 0.5rem;
-  border-bottom: 1px solid rgb(54, 54, 54);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -215,8 +260,20 @@ body {
   cursor: pointer;
 }
 
-.taskListItem:hover {
+.darkTaskListItem {
+  border-bottom: 1px solid rgb(34, 34, 34);
+}
+
+.lightTaskListItem {
+  border-bottom: 1px solid rgb(100, 100, 100);
+}
+
+.darkTaskListItem:hover {
   background: rgb(63, 63, 63);
+}
+
+.lightTaskListItem:hover {
+  background: rgb(122, 122, 122);
 }
 
 .taskDesc {
@@ -234,11 +291,17 @@ body {
   color: rgb(194, 194, 194);
   margin-top: 4rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.emptyTaskListItem {
+  font-family: 'Comfortaa', cursive;
+  margin-bottom: 1rem;
 }
 
 .settings {
   padding: 2rem;
-  background: rgba(107, 107, 107, 0.8);
   position: absolute;
   left: 50%;
   top: 50%;
@@ -249,6 +312,15 @@ body {
   align-items: center;
   flex-direction: column;
   border-radius: 0.5rem;
+  transition: 0.2s ease-in-out;
+}
+
+.darkSettings {
+  background: rgba(100, 100, 100, 0.8);
+}
+
+.lightSettings {
+  background: rgba(34, 34, 34, 0.8);
 }
 
 .settingsInput {
@@ -265,13 +337,12 @@ body {
 
 .settingsButton {
   color: rgb(54, 54, 54);
-  background: rgb(122, 199, 157);
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: none;
   cursor: pointer;
   font-family: 'Comfortaa', cursive;
-  transition: color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 @media (max-width: 1000px) {

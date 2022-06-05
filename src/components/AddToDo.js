@@ -1,10 +1,11 @@
 import { useRef } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { addTask } from '../userSlice'
 
 export default function AddToDo() {
     const newTask = useRef()
     const dispatch = useDispatch()
+    const defaultTheme = useSelector(state => state.user.defaultTheme)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -22,7 +23,7 @@ export default function AddToDo() {
               className='toDoInput'
               ref={newTask}
             />
-            <button className='addToDoButton'>Add</button>
+            <button className={defaultTheme? 'addToDoButton darkThemeButton' : 'addToDoButton lightThemeButton'}>Add</button>
           </form>
             
         </div>

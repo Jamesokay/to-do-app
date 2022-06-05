@@ -4,7 +4,7 @@ export const userSlice = createSlice({
   name: 'user',
   initialState: {
     name: '',
-    darkTheme: false,
+    defaultTheme: true,
     tasks: [],
   },
   reducers: {
@@ -31,7 +31,7 @@ export const userSlice = createSlice({
     signOut: () => {
       return {
         name: '',
-        darkTheme: false,
+        defaultTheme: true,
         tasks: []
       }
     },
@@ -51,7 +51,7 @@ export const userSlice = createSlice({
     updateTheme: (state) => {
       return {
         ...state,
-        darkTheme: !state.darkTheme
+        defaultTheme: !state.defaultTheme
       }
     }
   },

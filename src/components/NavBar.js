@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState, useRef } from 'react'
-import { signOut, updateName } from '../userSlice'
+import { signOut, updateName, updateTheme } from '../userSlice'
 
 export default function NavBar() {
     const navigate = useNavigate()
@@ -10,6 +10,8 @@ export default function NavBar() {
     const buttonRef = useRef(null)
     const usernameRef = useRef(null)
     const [showSettings, setShowSettings] = useState(false)
+    const username = useSelector(state => state.user.name)
+    const defaultTheme = useSelector(state => state.user.defaultTheme)
   
     useEffect(() => {
       document.addEventListener('click', handleClickOutside, false)
@@ -30,6 +32,10 @@ export default function NavBar() {
         usernameRef.current.value = ''
     }
 
+    const changeTheme = () => {
+        dispatch(updateTheme({defaultTheme: !defaultTheme}))
+    }
+
     const handleSignOut = (e) => {
         e.preventDefault()
         dispatch(signOut())
@@ -38,23 +44,23 @@ export default function NavBar() {
 
     return (
         <>
-        <div className='navBar'>
+        <div className={defaultTheme? 'navBar darkTheme' : 'navBar lightTheme'}>
            <span className='navLeft' ref={buttonRef} onClick={() => setShowSettings(!showSettings)}>Settings</span> 
            <span className='navCentre'>To Do</span>
            <span className='navRight' onClick={handleSignOut}>Logout</span>
         </div>
         {showSettings && (
-        <div className='settings' ref={wrapperRef}>
+        <div className={defaultTheme? 'settings darkSettings' : 'settings lightSettings'} ref={wrapperRef}>
           <form className='settingsForm' onSubmit={handleSubmit}>
             <input
-              placeholder='Update username'
+              placeholder={username}
               type='text'
               className='settingsInput'
               ref={usernameRef}
             />
-            <button className='settingsButton'>Update</button>
+            <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'}>Update</button>
           </form>
-          <button className='settingsButton'>Dark mode</button>
+          <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'} onClick={() => changeTheme()}>Change Theme</button>
         </div>
         )}
         </>
