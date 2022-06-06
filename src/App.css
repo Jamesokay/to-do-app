@@ -5,16 +5,19 @@
 
 * {
   margin: 0;
+  padding: 0;
   font-family: 'Roboto', sans-serif;
 }
 
 body {
   overscroll-behavior: none;
-  overflow: hidden;
   user-select: none;
   background: rgb(34, 34, 34);
   position: relative;
   height: 100vh;
+  min-height: 600px;
+  margin: 0;
+  padding: 0;
 }
 
 #root {
@@ -25,12 +28,15 @@ body {
   height: 100%;
 }
 
+.container {
+  height: 100%;
+}
+
 .page {
   width: 100%;
-  margin-top: 50px;
   height: calc(100% - 50px);
   display: flex;
-  transition: all 0.2s ease-in-out;
+  transition: background 0.2s ease-in-out;
 }
 
 .darkPage {
@@ -120,8 +126,6 @@ body {
   height: 50px;
   width: 100%;
   color: rgb(54, 54, 54);
-  position: fixed;
-  top: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -225,9 +229,8 @@ body {
 .sideBar {
   width: 350px;
   height: 100%;
-  overflow-y: scroll;
-  z-index: 2;
-  position: relative;
+  display: flex;
+  flex-direction: column;
   animation: fadein 2s ease;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -248,9 +251,7 @@ body {
   justify-content: space-around;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  position: fixed;
-  width: 350px;
-  z-index: 3;
+  width: 100%;
   transition: background 0.2s ease-in-out;
   
 }
@@ -277,10 +278,10 @@ body {
 }
 
 .taskList {
-  margin-top: 3.25rem;
   list-style: none;
   padding: 0;
   width: 100%;
+  overflow-y: scroll;
 }
 
 .taskListItem {
@@ -323,7 +324,7 @@ body {
 
 .emptyTaskList {
   color: rgb(194, 194, 194);
-  margin-top: 4rem;
+  margin-top: 1rem;
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
@@ -407,9 +408,6 @@ body {
   .sideBar {
     width: 35%;
   }
-  .taskTypeContainer {
-    width: 35%;
-  }
   .addToDo {
     width: 65%;
   }
@@ -417,24 +415,15 @@ body {
 
 @media (max-width: 825px) {
   .page {
-    margin-top: 50px;
-    height: calc(100% - 50px);
-    position: relative;
+    flex-direction: column-reverse;
   }
   .addToDo {
     width: 100%;
-    min-height: 120px;
-    position: absolute;
-    top: 0;
+    height: 200px;
   }
   .sideBar {
     width: 100%;
-    position: absolute;
-    top: 120px;
-    height: calc(100% - 120px)
-  }
-  .taskTypeContainer {
-    width: 100%;
+    height: calc(100% - 200px);
   }
   .settings {
     left: 50%;
@@ -452,9 +441,6 @@ body {
     font-size: 1rem;
     padding: 0.5rem;
   }
-  .sideBar {
-    height: calc(100% - 120px)
-  }
   .settings {
     width: 350px;
   }
@@ -471,7 +457,6 @@ body {
     font-size: 0.8rem;
   }
   .page {
-    margin-top: 35px;
     height: calc(100% - 35px);
   }
   .settings {
@@ -485,13 +470,6 @@ body {
   }
   .changeTheme {
     font-size: 0.8rem;
-  }
-  .signInPage {
-    position: relative;
-  }
-  .signInContainer {
-    position: absolute;
-    top: 120px;
   }
 }
 
