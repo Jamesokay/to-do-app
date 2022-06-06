@@ -6,7 +6,6 @@ export default function SignIn() {
     const dispatch = useDispatch()
     const username = useRef()
     
-
     const attemptSignIn = (e) => {
         e.preventDefault()
         if (username.current.value.length >= 4) {

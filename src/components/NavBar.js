@@ -44,25 +44,25 @@ export default function NavBar() {
 
     return (
         <>
-        <div className={defaultTheme? 'navBar darkTheme' : 'navBar lightTheme'}>
-           <span className='navLeft' ref={buttonRef} onClick={() => setShowSettings(!showSettings)}>Settings</span> 
-           <span className='navCentre'>To Do</span>
-           <span className='navRight' onClick={handleSignOut}>Logout</span>
-        </div>
-        {showSettings && (
-        <div className={defaultTheme? 'settings darkSettings' : 'settings lightSettings'} ref={wrapperRef}>
-          <form className='settingsForm' onSubmit={handleSubmit}>
-            <input
-              placeholder={username}
-              type='text'
-              className='settingsInput'
-              ref={usernameRef}
-            />
-            <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'}>Update</button>
-          </form>
-          <span className='changeTheme' onClick={() => changeTheme()}>Change Theme</span>
-        </div>
-        )}
+          <div className={defaultTheme? 'navBar darkTheme' : 'navBar lightTheme'}>
+            <span className='navLeft' ref={buttonRef} onClick={() => setShowSettings(!showSettings)}>Settings</span> 
+            <span className='navCentre'>To Do</span>
+            <span className='navRight' onClick={handleSignOut}>Logout</span>
+          </div>
+          {showSettings && (
+          <div className={defaultTheme? 'settings darkSettings' : 'settings lightSettings'} ref={wrapperRef}>
+            <form className='settingsForm' onSubmit={handleSubmit}>
+              <input
+                placeholder={username}
+                type='text'
+                className='settingsInput'
+                ref={usernameRef}
+              />
+              <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'}>Update</button>
+            </form>
+            <span className='changeTheme' onClick={() => changeTheme()}>Change Theme</span>
+          </div>
+          )}
         </>
     )
 }

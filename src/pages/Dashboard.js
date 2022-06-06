@@ -8,11 +8,11 @@ export default function Dashboard() {
     const defaultTheme = useSelector(state => state.user.defaultTheme)
     return (
         <>
-        <NavBar />
-        <div className={defaultTheme? 'page darkPage' : 'page lightPage'}>
+          <NavBar />
+          <div className={defaultTheme? 'page darkPage' : 'page lightPage'}>
             <SideBar />
             <AddToDo />
-        </div>
+          </div>
         </>
     )
 }

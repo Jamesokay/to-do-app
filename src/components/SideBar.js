@@ -51,21 +51,21 @@ export default function SideBar() {
     return (
         <div className={defaultTheme? 'sideBar darkSideBar' : 'sideBar lightSideBar'}>
           <div className={defaultTheme? 'taskTypeContainer darkTaskTypeContainer' : 'taskTypeContainer lightTaskTypeContainer'}>
-              <span className='taskType' onClick={() => setTaskType('all')} style={taskType === 'all'? {color: 'white'} : {}}>All</span>
-              <span className='taskType' onClick={() => setTaskType('current')} style={taskType === 'current'? {color: 'white'} : {}}>Current</span>
-              <span className='taskType' onClick={() => setTaskType('completed')} style={taskType === 'completed'? {color: 'white'} : {}}>Completed</span>
+            <span className='taskType' onClick={() => setTaskType('all')} style={taskType === 'all'? {color: 'white'} : {}}>All</span>
+            <span className='taskType' onClick={() => setTaskType('current')} style={taskType === 'current'? {color: 'white'} : {}}>Current</span>
+            <span className='taskType' onClick={() => setTaskType('completed')} style={taskType === 'completed'? {color: 'white'} : {}}>Completed</span>
           </div>
           {allTasks && allTasks.length !== 0?
           <ul className='taskList'>
-             {taskArr.map((task) => (
-                  <li key={task.uid} 
-                      className={defaultTheme? 'darkTaskListItem taskListItem' : 'lightTaskListItem taskListItem'} onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
-                      <span className='taskDesc' style={task.complete? {opacity: '0.5'} : {}}>{task.desc}</span>
-                      {!task.complete && (
-                        <div className='taskStatus' />
-                      )}
-                  </li>
-              ))}
+            {taskArr.map((task) => (
+              <li key={task.uid} className={defaultTheme? 'darkTaskListItem taskListItem' : 'lightTaskListItem taskListItem'} 
+                  onClick={() => task.complete? deleteTask(task.uid) : markAsComplete(task.uid)}>
+                <span className='taskDesc' style={task.complete? {opacity: '0.5'} : {}}>{task.desc}</span>
+                  {!task.complete && (
+                    <div className='taskStatus' />
+                  )}
+              </li>
+            ))}
           </ul>
           :
           <div className='emptyTaskList'>

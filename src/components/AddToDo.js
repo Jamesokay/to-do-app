@@ -24,8 +24,7 @@ export default function AddToDo() {
               ref={newTask}
             />
             <button className={defaultTheme? 'addToDoButton darkThemeButton' : 'addToDoButton lightThemeButton'}>Add</button>
-          </form>
-            
+          </form>         
         </div>
     )
 }

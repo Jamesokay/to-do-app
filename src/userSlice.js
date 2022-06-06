@@ -54,7 +54,7 @@ export const userSlice = createSlice({
         defaultTheme: !state.defaultTheme
       }
     }
-  },
+  }
 })
 
 
