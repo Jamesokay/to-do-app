@@ -56,6 +56,7 @@ export default function NavBar() {
                 placeholder={username}
                 type='text'
                 className='settingsInput'
+                required
                 ref={usernameRef}
               />
               <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'}>Update</button>
