@@ -2,6 +2,11 @@
 
 An application for keeping track of tasks (and becoming a better, happier, more organised, fulfilled and all round actualised person; ready to seize the day and be all that you can be; achieving goals and overcoming limitations; setting sail for thrilling new horizons both personal and professional etc).
 
+<img width="800" alt="Screen Shot 2022-06-06 at 3 47 35 pm" src="https://user-images.githubusercontent.com/78640728/172119783-e82156a7-0e09-459a-b456-f4c57484195a.png">
+<br>
+<img width="800" alt="Screen Shot 2022-06-06 at 3 54 28 pm" src="https://user-images.githubusercontent.com/78640728/172119853-77ff1e9d-7745-4e4d-95a8-e3e6d5306b56.png">
+
+
 ## Features
 
 Upon signing in with a 4+ character name, the user is able to add tasks to their to-do list. Current tasks are brighter and marked with a yellow circle. Completed tasks are greyed out. Clicking on a task will advance it to the next stage: a current task will be marked as completed, a completed task will be cleared from the to-do list. This logic is explained via a brief set of instructions that appear in the sidebar when the user's to-do list is empty. 
