@@ -2,6 +2,8 @@
 
 An application for keeping track of tasks (and becoming a better, happier, more organised, fulfilled and all round actualised person; ready to seize the day and be all that you can be; achieving goals and overcoming limitations; setting sail for thrilling new horizons both personal and professional etc).
 
+You can check out the live GitHub Pages site [here](https://jamesokay.github.io/to-do-app/)
+
 <img width="800" alt="Screen Shot 2022-06-06 at 3 47 35 pm" src="https://user-images.githubusercontent.com/78640728/172119783-e82156a7-0e09-459a-b456-f4c57484195a.png">
 <br>
 <img width="800" alt="Screen Shot 2022-06-06 at 3 54 28 pm" src="https://user-images.githubusercontent.com/78640728/172119853-77ff1e9d-7745-4e4d-95a8-e3e6d5306b56.png">
@@ -22,3 +24,5 @@ App design is mobile responsive.
 ## Lessons
 
 Building this app was, for me, mostly a refresher course in Redux. I have tended to use React's Context API for state management in previous projects but enjoyed the opportunity to use Redux this time around, finding it was easier to centralise state in a single source of truth.
+
+A (painful but perhaps worthwhile) lesson I learned right at the end was in regards to GitHub Pages, more specifically that GitHub Pages is not compatible with React Router's 'BrowserRouter', as this will lead to a 404 error on page refresh. Hence the last minute change to 'HashRouter', which I would not typically use, but does the trick just fine in this instance.
