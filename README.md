@@ -1,70 +1,15 @@
-# Getting Started with Create React App
+# To-Do Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+An application for keeping track of tasks (and becoming a better, happier, more organised, fulfilled and all round actualised person; ready to seize the day and be all that you can be; achieving goals and overcoming limitations; setting sail for thrilling new horizons both personal and professional etc).
 
-## Available Scripts
+Upon signing in with a 4+ character name, the user is able to add tasks to their to-do list. Current tasks are brighter and marked with a yellow circle. Completed tasks are greyed out. Clicking on a task will advance it to the next stage: a current task will be marked as completed, a completed task will be cleared from the to-do list. This logic is explained via a brief set of instructions that appear in the sidebar when the user's to-do list is empty. 
 
-In the project directory, you can run:
+The to-do list can be toggled via the buttons at the top, allowing the user to view all tasks, current tasks, or completed tasks, each category being sorted accordingly ('all' in order they were added, 'current' in reverse order, such that the oldest appear first, and  'completed' in the order of their completion)
 
-### `npm start`
+The user can update their name and toggle the theme of the app via a settings modal.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+App design is mobile responsive.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+State is managed with Redux. Redux store is synced with local storage via the loadState() and saveState() functions defined in localStorage.js, and used by store.js. Any changes to Redux state will be added to local storage by saveState(). Upon load, store.js will then check local storage for state via loadState(), and configure the store's preloadedState accordingly. This allows the Redux state (name, theme, to-dos) to persist across refreshes and visits, being cleared only when the user signs out.
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Building this app was, for me, mostly a refresher course in Redux. I have tended to use React's Context API for state management in previous projects but enjoyed the opportunity to use Redux this time around, finding it was easier to centralise state in a single source of truth.

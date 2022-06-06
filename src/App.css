@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&display=swap');
 
-*{
+
+/* General */
+
+* {
   margin: 0;
   font-family: 'Roboto', sans-serif;
 }
@@ -34,6 +37,13 @@ body {
 .lightText {
   color: white;
 }
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Sign-in Page  */
 
 .signInPage {
   background: rgb(122, 199, 157);
@@ -92,11 +102,7 @@ body {
   border-radius: 0.5rem;
 }
 
-
-::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
+/* Nav */
 
 .navBar {
   height: 50px;
@@ -154,26 +160,7 @@ body {
   font-family: 'Comfortaa', cursive;
 }
 
-.sideBar {
-  width: 350px;
-  height: 100%;
-  overflow-y: scroll;
-  z-index: 2;
-  position: relative;
-  animation: fadein 2s ease;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  opacity: 0;
-  transition: background 0.2s ease-in-out;
-}
-
-.darkSideBar {
-  background: rgb(24, 24, 24);
-}
-
-.lightSideBar {
-  background: rgb(82, 82, 82);
-}
+/* Add To Do */
 
 .addToDo {
   display: flex;
@@ -219,6 +206,29 @@ body {
   cursor: pointer;
   font-family: 'Comfortaa', cursive;
   transition: background 0.2s ease-in-out;
+}
+
+/* Side Bar */
+
+.sideBar {
+  width: 350px;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 2;
+  position: relative;
+  animation: fadein 2s ease;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  transition: background 0.2s ease-in-out;
+}
+
+.darkSideBar {
+  background: rgb(24, 24, 24);
+}
+
+.lightSideBar {
+  background: rgb(82, 82, 82);
 }
 
 .taskTypeContainer {
@@ -315,6 +325,8 @@ body {
   font-weight: bold;
 }
 
+/* Settings Modal */
+
 .settings {
   width: 420px;
   height: 200px;
@@ -376,6 +388,8 @@ body {
 .changeTheme:hover {
   text-decoration: underline;
 }
+
+/* Media Queries */
 
 @media (max-width: 1000px) {
   .sideBar {
@@ -441,6 +455,8 @@ body {
     width: 120px;
   }
 }
+
+/* Animation */
 
 @keyframes fadein {
   0% {
