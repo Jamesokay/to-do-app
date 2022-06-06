@@ -28,8 +28,12 @@ export default function NavBar() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dispatch(updateName({name: usernameRef.current.value}))
-        usernameRef.current.value = ''
+        if (usernameRef.current.value.length >= 4) {
+          dispatch(updateName({name: usernameRef.current.value}))
+          usernameRef.current.value = ''
+        } else {
+          return
+        }
     }
 
     const changeTheme = () => {
@@ -57,6 +61,7 @@ export default function NavBar() {
                 type='text'
                 className='settingsInput'
                 required
+                minLength='4'
                 ref={usernameRef}
               />
               <button className={defaultTheme? 'settingsButton darkThemeButton' : 'settingsButton lightThemeButton'}>Update</button>
